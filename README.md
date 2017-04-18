@@ -12,7 +12,7 @@
 [Updated Page.css](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/components/Page.css)					
 							 								
 ●  [CSS] Add rounded corners<br>
-[Creates rounded corner utility function (r-c-5) in Index.css](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/index.css)	
+[Creates rounded corner utility function (b-r-5) in Index.css](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/index.css)	
 					 								
 ●  [CSS] Event color indicator in overlay (small square next to the time time) should match the event color <br>
 [Refactored the colors to be declared once in utility css](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/index.css)<br>	
@@ -23,7 +23,7 @@
 					
 ●  [JS/CSS] Past events should display faded out<br>
 [Created utility function isEventPassed](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/utils/index.js)<br>		
-[Created utility function to programatically customize CSS in TimeSlot.js](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/components/TimeSlot.js)	
+[Created utility function to programatically customize CSS in TimeSlotEvent.js](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/components/TimeSlotEvent.js)	
 							 								
 ●  [JS] Buttons to navigate to previous/next day do not work<br>
 [Uses constant MILLISECONDS_DAY to change date](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/components/Page.js)<br>			
@@ -39,13 +39,14 @@ allowing equality comparison of timestamps](https://github.com/jenjwong/calendar
 
 						 								
 ●  [JS] Improve naively implemented getDisplayHour helper function<br>
-[Refactored original code for use in test!](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/utils/index.js)								
-					
+[Created Programatic implementation](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/utils/index.js)<br>[Refactored original code for use in test!](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/utils/index.test.js)<br>
+
+		
 
 ● Each time slot event should take up the full width and vertically stack on 
 top of each other. On larger screens, when there are multiple events for a time slot, 
 they should be evenly divided on the same row<br>
-[Uses Flexbox](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/components/TimeSlot.css)								
+[Uses Flexbox in TimeSlot.css](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/components/TimeSlot.css)								
 							 							
 								
 Bonus!
@@ -73,14 +74,14 @@ npm run coverage
 ```
 	
 ●  [JS] Use Redux/MobX/etc to store application state<br>
-[Application state logic is managed with Redux](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/reducers/index.js)								
-Redux Dev tools run in development. Normalizr would be useful on a bigger project along with storing data as a dictionary with array lookups instead of an array of event objects	
+[Application state logic is managed with Redux](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/reducers/index.js).								
+Redux Dev tools run in development. Normalizr would be useful on a bigger project along with storing data as a dictionary with array lookups instead of arrays of event objects.	
 							 								
 ●  [JS] Use a routing library (like React Router) to provide sharable URLs<br>
-Presentational state is abstracted out of the Redux store and EventDetailsOverlay display is managed with React Router. Subroutes are defined in Page.js:
-[Updated Page.css](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/components/Page.css)					
+Presentational state is abstracted out of the Redux store and EventDetailsOverlay display is managed with React Router. 
+[Subroutes are defined in Page.js:](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/components/Page.js)					
 			
 ●  [HTML/CSS/JS] Create a form for adding a new calendar event<br>
-[AddEventForm.js allows users to create events, updating the Redux state](	https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/components/AddEventForm.js). This feature is still in progress, but I thought it was worth including as it allows you to interact with the rest of the application. The feature has basic functionality like form validation, but is un-styled and the datepicker works only in Chrome and Safari. 					
+[AddEventForm.js allows users to create events, updating the Redux state](https://github.com/jenjwong/calendar-exercise/blob/saving-the-day/src/components/AddEventForm.js). This feature is still in progress, but I thought it was worth including as it allows you to interact with the rest of the application. The feature has basic functionality like form validation, but is un-styled and the datepicker works only in Chrome and Safari. 					
 									
 			

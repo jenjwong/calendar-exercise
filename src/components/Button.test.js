@@ -6,5 +6,6 @@ import {shallowToJson} from 'enzyme-to-json';
 test('AddEventButton Snapshot', () => {
     const component = shallow(<AddEventButton />);
     const tree = shallowToJson(component);
+
     expect(tree).toMatchSnapshot();
 });

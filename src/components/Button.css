@@ -1,0 +1,11 @@
+.add-button {
+    opacity: 0.4;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-button:focus {
+    outline:0;
+}

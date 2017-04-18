@@ -2,5 +2,27 @@
  * TODO: Calendar should have rounded corners
  */
 .calendar {
+    box-sizing: border-box;
     border: 1px solid #666;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 85vh;
+}
+
+.calendar-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+}
+
+@media screen and (min-width: 50rem) {
+    .calendar {
+        height: 85vh;
+    }
+
+    .calendar-wrapper {
+        height: 85vh;
+    }
 }

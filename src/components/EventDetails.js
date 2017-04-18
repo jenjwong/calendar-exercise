@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {EVENT_PROP_TYPE} from './constants';
+import {EVENT_PROP_TYPE} from '../utils/proptypeConstants';
 import {getDisplayDate, getDisplayHour} from '../utils';
 
 import './EventDetails.css';
@@ -14,10 +14,13 @@ export default class EventDetails extends PureComponent {
         let {title, description, start, color, hours} = event;
         let displayDate = getDisplayDate(start);
         let startHour = (new Date(start)).getHours();
+        let startMinutes = (new Date(start)).getMinutes();
         let endHour = startHour + hours;
-        let startHourDisplay = getDisplayHour(startHour)
+
+        // TODO: handle end hour less than hour display
+        let startHourDisplay = getDisplayHour(startHour, startMinutes);
         let endHourDisplay = getDisplayHour(endHour);
-        let displayDateTime = `${displayDate} ${startHourDisplay} - ${endHourDisplay}`
+        let displayDateTime = `${displayDate} ${startHourDisplay} - ${endHourDisplay}`;
 
         return (
             <div>

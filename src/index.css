@@ -10,17 +10,36 @@ h3 {
 body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-
     color: #212121;
     font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
     letter-spacing: 0.02em;
     font-size: 1.5vh;
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
 }
 
 a:hover, a:visited, a:link, a:active {
     text-decoration: none;
     color: inherit;
 }
+
+.wrapper {
+    padding: 0.75rem;
+    overflow-Y: scroll;
+    height: 100%;
+    width: 100vw;
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.wrapper-no-scroll {
+    overflow-Y: hidden;
+}
+
+
 
 .sky {
     background-color: #d1e8f0;
