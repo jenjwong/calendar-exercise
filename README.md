@@ -4,7 +4,6 @@
 * React-Router 4
 * React-Redux
 * Redux
-* Redux-Thunks
 * Enzyme
 * Google Caja Sanitizer
 
