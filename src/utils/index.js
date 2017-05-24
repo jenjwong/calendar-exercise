@@ -67,7 +67,7 @@ export const getDisplayHour = (hour) => {
  * @returns {object}
  */
 export const getEventFromEvents = (events, eventId) => (
-    events.find(({id}) => id == eventId)
+    events.find(({id}) => id === parseInt(eventId, 10))
 )
 
 /**

@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Route} from 'react-router-dom';
-import {setDay} from '../actions/actionCreators';
+import {setDay, changeDay} from '../actions/actionCreators';
 import Calendar from './Calendar';
 import AddEventButton from './AddEventButton';
 import DetailOverlay from './DetailOverlay';
@@ -42,11 +42,13 @@ export class Page extends PureComponent {
     }
 
     _handlePrev() {
-        this.props.dispatch(setDay(this.props.day - MILLISECONDS_DAY));
+        this.props.dispatch(changeDay(-7));
+        // this.props.dispatch(setDay(this.props.day - MILLISECONDS_DAY));
     }
 
     _handleNext() {
-        this.props.dispatch(setDay(this.props.day + MILLISECONDS_DAY));
+        this.props.dispatch(changeDay(+7));
+        // this.props.dispatch(setDay(this.props.day + MILLISECONDS_DAY));
     }
 
     _eventDetailOverlayRenderHelper() {

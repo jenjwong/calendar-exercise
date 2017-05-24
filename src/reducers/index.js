@@ -1,5 +1,6 @@
 import DATA_SET from '../utils/data';
-import {ADD_EVENT, SET_DAY} from '../actions/actions';
+import {ADD_EVENT, SET_DAY, CHANGE_DAY} from '../actions/actions';
+import {MILLISECONDS_DAY} from '../utils/constants';
 
 const DEFAULT_STATE = {
     events: DATA_SET,
@@ -35,6 +36,11 @@ const events = (state = DEFAULT_STATE, action) => {
                 ...state,
                 day: action.day
           }
+        case CHANGE_DAY:
+            return {
+                ...state,
+                day: state.day + (MILLISECONDS_DAY * action.day)
+            }
         default:
             return state
     }
