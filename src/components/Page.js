@@ -2,36 +2,34 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Route} from 'react-router-dom';
-import {setDay, changeDay} from '../actions/actionCreators';
+import {changeDay} from '../actions/actionCreators';
 import Calendar from './Calendar';
 import AddEventButton from './AddEventButton';
 import DetailOverlay from './DetailOverlay';
 import EventDetails from './EventDetails';
 import AddEventForm from './AddEventForm';
-import {MILLISECONDS_DAY} from '../utils/constants';
+// import {MILLISECONDS_DAY} from '../utils/constants';
 import {filterEventsByDay, getEventFromEvents, getDisplayDate} from '../utils';
 
 import './Page.css';
 
-const DayNavigator = ({dateDisplay, onPrev, onNext}) => {
-    return (
+const DayNavigator = ({dateDisplay, onPrev, onNext}) => (
+    <nav className="page__nav">
+        <button
+            className="page__nav-button page__prev-day"
+            title="Go to previous day"
+            onClick={onPrev}
+        />
+        <h2 className="page__date">{dateDisplay}</h2>
         <nav className="page__nav">
             <button
-                className="page__nav-button page__prev-day"
-                title="Go to previous day"
-                onClick={onPrev}
+                className="page__nav-button page__next-day"
+                title="Go to next day"
+                onClick={onNext}
             />
-            <h2 className="page__date">{dateDisplay}</h2>
-            <nav className="page__nav">
-                <button
-                    className="page__nav-button page__next-day"
-                    title="Go to next day"
-                    onClick={onNext}
-                />
-            </nav>
         </nav>
+    </nav>
     );
-};
 
 export class Page extends PureComponent {
 
@@ -53,19 +51,21 @@ export class Page extends PureComponent {
 
     _eventDetailOverlayRenderHelper() {
         return (
-            <Route path="/details/:id"
+            <Route
+                path="/details/:id"
                 render={
                     ({match}) => {
                         const selectedEvent = getEventFromEvents(this.props.events, match.params.id);
-                        return <DetailOverlay content={<EventDetails event={selectedEvent} {...this.props} />} />
+
+                        return <DetailOverlay content={<EventDetails event={selectedEvent} {...this.props} />} />;
                     }
                 }
             />
-        )
+        );
     }
 
     _AddEventFormRenderHelper() {
-        return <Route path="/addEvent" render={() => <DetailOverlay content={<AddEventForm />} />} />
+        return <Route path="/addEvent" render={() => <DetailOverlay content={<AddEventForm />} />} />;
     }
 
     render() {
@@ -93,7 +93,7 @@ export class Page extends PureComponent {
     }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     events: state.events,
     day: state.day
 });

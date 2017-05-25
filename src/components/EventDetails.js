@@ -15,9 +15,9 @@ export default class EventDetails extends PureComponent {
         let displayDate = getDisplayDate(start);
         let startHour = (new Date(start)).getHours();
         let endHour = startHour + hours;
-        let startHourDisplay = getDisplayHour(startHour)
+        let startHourDisplay = getDisplayHour(startHour);
         let endHourDisplay = getDisplayHour(endHour);
-        let displayDateTime = `${displayDate} ${startHourDisplay} - ${endHourDisplay}`
+        let displayDateTime = `${displayDate} ${startHourDisplay} - ${endHourDisplay}`;
 
         return (
             <div>

@@ -27,7 +27,7 @@ export default class Calendar extends PureComponent {
                         hour={hour}
                         events={filteredEvents}
                     />
-                )
+                );
             });
     }
 

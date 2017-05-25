@@ -17,10 +17,10 @@ const event = (state, action) => {
                 description: action.event.description,
                 start: action.event.start,
                 hours: action.event.hours,
-                color: action.event.color
-            }
+                color: action.event.color,
+            };
         default:
-            return state
+            return state;
     }
 };
 
@@ -29,20 +29,20 @@ const events = (state = DEFAULT_STATE, action) => {
         case ADD_EVENT:
             return {
                 ...state,
-                events: [...state.events, event(undefined, action)]
-            }
+                events: [...state.events, event(undefined, action)],
+            };
         case SET_DAY:
             return {
                 ...state,
-                day: action.day
-          }
+                day: action.day,
+            };
         case CHANGE_DAY:
             return {
                 ...state,
-                day: state.day + (MILLISECONDS_DAY * action.day)
-            }
+                day: state.day + (MILLISECONDS_DAY * action.day),
+            };
         default:
-            return state
+            return state;
     }
 };
 

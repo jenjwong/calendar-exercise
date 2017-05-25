@@ -3,7 +3,7 @@
  * @param {Date} timestamp - The timestamp
  * @returns {object}
  */
-export const dateAtMidnight = (timestamp) => new Date(timestamp).setHours(0,0,0,0);
+export const dateAtMidnight = (timestamp) => new Date(timestamp).setHours(0, 0, 0, 0);
 
 /**
  * Given a list of events and a date, filter the events down to those that
@@ -12,11 +12,7 @@ export const dateAtMidnight = (timestamp) => new Date(timestamp).setHours(0,0,0,
  * @param {Date} timestamp - The timestamp representing the day to match
  * @returns {array}
  */
-export const filterEventsByDay = (events, timestamp) => {
-    return events.filter((event) => {
-      return dateAtMidnight(event.start) === dateAtMidnight(timestamp)
-    });
-};
+export const filterEventsByDay = (events, timestamp) => events.filter((event) => dateAtMidnight(event.start) === dateAtMidnight(timestamp));
 
 /**
  * Given a list of events and an hour number, filter the events down to those that
@@ -28,7 +24,7 @@ export const filterEventsByDay = (events, timestamp) => {
  */
 export const filterEventsByHour = (events, hour) => (
     events.filter(({start}) => (
-        new Date(start)).getHours() === hour
+        new Date(start)).getHours() === hour,
     )
 );
 
@@ -38,8 +34,9 @@ export const filterEventsByHour = (events, hour) => (
  * @returns {string} The formatted date
  */
 export const getDisplayDate = (timestamp) => {
-    let date = new Date(timestamp);
+    const date = new Date(timestamp);
     const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+
     return date.toLocaleString('en-US', options);
 };
 
@@ -52,12 +49,13 @@ export const getDisplayDate = (timestamp) => {
 // export const getDisplayHour = hour => hour === 0 ? '12AM' : hour >= 12 ? `${hour - 11}PM` : `${hour}AM`;
 
 export const getDisplayHour = (hour) => {
-    const _getAmPm = hour => hour >= 12 ? `${hour % 12}PM` : `${hour}AM`;
+    const _getAmPm = (h) => h >= 12 ? `${h % 12}PM` : `${h}AM`;
+
     if (hour % 12 !== 0) {
-      return _getAmPm(hour);
+        return _getAmPm(hour);
     }
     return hour === 0 ? '12AM' : '12PM';
-}
+};
 
 
 /**
@@ -68,11 +66,11 @@ export const getDisplayHour = (hour) => {
  */
 export const getEventFromEvents = (events, eventId) => (
     events.find(({id}) => id === parseInt(eventId, 10))
-)
+);
 
 /**
  * Given a timestamp, returns a boolean indicating if the event has passed
  * @param {number} timestamp - The date of the event
  * @returns {boolean} - True if event has passed
  */
-export const isEventPassed = timestamp => timestamp < Date.now();
+export const isEventPassed = (timestamp) => timestamp < Date.now();

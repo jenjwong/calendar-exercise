@@ -9,8 +9,8 @@ export default class DetailOverlay extends PureComponent {
         return (
             <section className="event-detail-overlay">
                 <div className="event-detail-overlay__container b-r-5">
-                    <Link to={{ pathname: `/` }}>
-                        <div className="event-detail-overlay__close" title="Close detail view"></div>
+                    <Link to={{pathname: '/'}}>
+                        <div className="event-detail-overlay__close" title="Close detail view" />
                     </Link>
                     <div>
                         {this.props.content}

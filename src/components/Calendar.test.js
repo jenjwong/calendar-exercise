@@ -7,5 +7,6 @@ import mockData from '../utils/data.js';
 
 test('Calendar should render an TimeSlot card for each hour in day', () => {
     const component = shallow(<Calendar events={mockData} />);
+
     expect(component.find(TimeSlot).length).toEqual(24);
 });
