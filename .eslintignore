@@ -1,0 +1,10 @@
+static
+*.ico
+*.gif
+*.jpg
+*.jpeg
+*.md
+*.lock
+*.json
+*test*
+index.html

@@ -1,0 +1,10 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+      "react/jsx-no-bind":1
+  },
+    "extends": "eventbrite-react"
+}
