@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import {EVENT_PROP_TYPE} from '../utils/proptypeConstants';
-import {getDisplayDate, getDisplayHour} from '../utils';
+import {getDisplayDate, getDisplayHour, hourToMiliseconds} from '../utils';
 
 import './EventDetails.css';
 
@@ -10,17 +10,27 @@ export default class EventDetails extends PureComponent {
     }
 
     render() {
+        // TODO: factor out functionality into helper function
         let {event} = this.props;
         let {title, description, start, color, hours} = event;
-        let displayDate = getDisplayDate(start);
-        let startHour = (new Date(start)).getHours();
-        let startMinutes = (new Date(start)).getMinutes();
-        let endHour = startHour + hours;
+        let displayDateStart = getDisplayDate(start);
+        let startDateObj = new Date(start);
+        let startHour = startDateObj.getHours();
+        let startMinutes = startDateObj.getMinutes();
 
-        // TODO: handle end hour less than hour display
+        let endMiliseconds = start + hourToMiliseconds(hours);
+        let displayDateEnd = getDisplayDate(endMiliseconds);
+        let endDateObj = new Date(endMiliseconds);
+        let endHour = endDateObj.getHours();
+        let endMinutes = endDateObj.getMinutes();
+
         let startHourDisplay = getDisplayHour(startHour, startMinutes);
-        let endHourDisplay = getDisplayHour(endHour);
-        let displayDateTime = `${displayDate} ${startHourDisplay} - ${endHourDisplay}`;
+        let endHourDisplay = getDisplayHour(endHour, endMinutes);
+        let displayDateTime = `${displayDateStart} ${startHourDisplay} - ${endHourDisplay}`;
+
+        if (displayDateStart !== displayDateEnd) {
+            displayDateTime = `${displayDateStart} ${startHourDisplay} - ${displayDateEnd} ${endHourDisplay}`;
+        }
 
         return (
             <div>

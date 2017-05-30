@@ -6,7 +6,7 @@ const _getStartHeight = (item, calendarHeight) => {
     let startTimeMiliseconds = hourToMiliseconds(new Date(item.start).getHours()) +
     minuteToMiliseconds(new Date(item.start).getMinutes());
     let startTimeDayRatio = startTimeMiliseconds / MILLISECONDS_DAY;
-    let startHeightPixels = startTimeDayRatio * calendarHeight;
+    let startHeightPixels = (startTimeDayRatio * calendarHeight);
 
     return Math.floor(startHeightPixels);
 };
@@ -14,13 +14,13 @@ const _getStartHeight = (item, calendarHeight) => {
 const _getEventDuration = (item, calendarHeight) => {
     let eventMilisecondDuration = hourToMiliseconds(item.hours);
     let eventDurationDayRatio = eventMilisecondDuration / MILLISECONDS_DAY;
-    let eventDurationPixels = eventDurationDayRatio * calendarHeight;
+    let eventDurationPixels = (eventDurationDayRatio * calendarHeight);
 
     return Math.floor(eventDurationPixels);
 };
 
-const getTimeSlotEventDimensions = (events, calendarHeight, calendarWidth, day) => {
-    return events.map((item) => {
+const getTimeSlotEventDimensions = (events, calendarHeight, calendarWidth, day) => (
+    events.map((item) => {
         let eventMilisecondDuration = hourToMiliseconds(item.hours);
         let eventEndMiliseconds = item.start + eventMilisecondDuration;
 
@@ -54,8 +54,7 @@ const getTimeSlotEventDimensions = (events, calendarHeight, calendarWidth, day) 
         let width = {width: calendarWidth / 4};
 
         return {...item, ...height, ...startHeight, ...width};
-    });
-
-};
+    })
+);
 
 export default getTimeSlotEventDimensions;

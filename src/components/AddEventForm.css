@@ -24,6 +24,7 @@ textarea[class*="add-event-form"] {
     flex: 1 1 100;
     display: flex;
     width: 100vw;
+    height: 50%;
     justify-content: center;
 }
 .add-event-form__title {
@@ -41,7 +42,7 @@ textarea[class*="add-event-form"] {
     flex: 1 1 50;
     display: flex;
     flex-direction: column;
-    height: 14vh;
+    height: 24vh;
     padding-left: 1vw;
 }
 .add-event-form__description {
@@ -61,10 +62,9 @@ textarea[class*="add-event-form"] {
 .add-event-form__button {
     flex: 1 1 25;
     height: 2vh;
-    margin-top: 2vh;
 }
 .add-event-form-message {
     text-align: center;
-    padding-top: 5vh;
+    padding-top: 2vh;
     color: red;
 }

@@ -18,12 +18,10 @@ import './PageContainer.css';
 class PageContainer extends PureComponent {
     _handlePrev() {
         this.props.changeDay(-1);
-        // this.props.dispatch(setDay(this.props.day - MILLISECONDS_DAY));
     }
 
     _handleNext() {
         this.props.changeDay(+1);
-        // this.props.dispatch(setDay(this.props.day + MILLISECONDS_DAY));
     }
 
     _eventDetailOverlayRenderHelper() {
@@ -51,22 +49,20 @@ class PageContainer extends PureComponent {
             <Route
                 path="/addEvent"
                 key={this.props.location.pathname}
-                render={() => {
-                    return (
-                        <DetailOverlay onClose={MAINPATH}>
-                            <AddEventFormContainer />
-                        </DetailOverlay>
-                    );
-                }}
+                render={() => (
+                    <DetailOverlay onClose={MAINPATH}>
+                        <AddEventFormContainer />
+                    </DetailOverlay>
+                )}
             />
         );
     }
 
-    _handleClick() {
+    _handleClickClose() {
         this.props.history.push('/');
     }
 
-    _handleKeyPress(e) {
+    _handleKeyPressClose(e) {
         if (e.key === 'Escape') {
             this.props.history.push('/');
         }
@@ -81,9 +77,10 @@ class PageContainer extends PureComponent {
             return (
                 <div
                     className="wrapper wrapper-no-scroll"
-                    onClick={this._handleClick.bind(this)}
-                    onKeyDown={this._handleKeyPress.bind(this)}
+                    onClick={this._handleClickClose.bind(this)}
+                    onKeyDown={this._handleKeyPressClose.bind(this)}
                     role="button"
+                    tabIndex="0"
                 >
                     <DayNavigator
                         dateDisplay={getDisplayDate(day)}
@@ -93,22 +90,22 @@ class PageContainer extends PureComponent {
                     <Page day={day} events={filteredEvents} />
                     <Route
                         render={({location}) => (
-                        <CSSTransitionGroup
-                            transitionName="example"
-                            transitionAppear={true}
-                            transitionAppearTimeout={900}
-                            transitionEnterTimeout={900}
-                            transitionLeaveTimeout={900}
-                        >
-                        <Switch
-                            key={location.key}
-                            location={location}
-                        >
-                            {this._eventDetailOverlayRenderHelper()}
-                            {this._AddEventFormRenderHelper()}
-                        </Switch>
-                        </CSSTransitionGroup>
-                    )}
+                            <CSSTransitionGroup
+                                transitionName="overlay"
+                                transitionAppear={true}
+                                transitionAppearTimeout={900}
+                                transitionEnterTimeout={900}
+                                transitionLeaveTimeout={900}
+                            >
+                                <Switch
+                                    key={location.key}
+                                    location={location}
+                                >
+                                    {this._eventDetailOverlayRenderHelper()}
+                                    {this._AddEventFormRenderHelper()}
+                                </Switch>
+                            </CSSTransitionGroup>
+                        )}
                     />
                 </div>
             );
@@ -124,21 +121,21 @@ class PageContainer extends PureComponent {
                 <Route
                     render={({location}) => (
                         <CSSTransitionGroup
-                            transitionName="example"
+                            transitionName="overlay"
                             transitionAppear={true}
                             transitionAppearTimeout={900}
                             transitionEnterTimeout={900}
                             transitionLeaveTimeout={900}
                         >
-                        <Switch
-                            key={location.key}
-                            location={location}
-                        >
-                            {this._eventDetailOverlayRenderHelper()}
-                            {this._AddEventFormRenderHelper()}
-                        </Switch>
+                            <Switch
+                                key={location.key}
+                                location={location}
+                            >
+                                {this._eventDetailOverlayRenderHelper()}
+                                {this._AddEventFormRenderHelper()}
+                            </Switch>
                         </CSSTransitionGroup>
-                )}
+                    )}
                 />
             </div>
         );

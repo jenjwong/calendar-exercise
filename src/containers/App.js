@@ -14,16 +14,4 @@ const App = () => (
     </Router>
 );
 
-const event = {
-        color:"shamrock",
-        date:"2017-05-27",
-        description:"test Event!!!!",
-        hours:36,
-        id:1495918103746,
-        start:1495911600000,
-        title:"TEST EVENT!!!!"
-}
-
-store.dispatch({type: 'ADD_EVENT', event});
-
 export default App;

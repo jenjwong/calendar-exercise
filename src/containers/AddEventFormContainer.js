@@ -13,12 +13,11 @@ class AddEventFormContainer extends PureComponent {
             description: '',
             startHour: '09:00',
             date: '',
-            hours: 24,
+            hours: 1.5,
             color: 'shamrock',
             message: '',
         };
     }
-
 
     _handleInputChange(e) {
         const sanitizedInput = sanitize(e.target.value);
@@ -60,7 +59,7 @@ class AddEventFormContainer extends PureComponent {
         return (
             <AddEventForm
                 _handleInputChange={this._handleInputChange.bind(this)} onAddEventFormSubmit={this._handleAddEventFormSubmit.bind(this)}
-                {...this.props}
+                {...this.props} event={this.state}
             />
         );
     }

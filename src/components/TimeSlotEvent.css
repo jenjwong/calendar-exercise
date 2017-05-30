@@ -5,7 +5,6 @@
  .time-slot-event {
      flex: 1 1 100;
      cursor: pointer;
-     /*padding: 0.5rem;*/
      overflow: hidden;
      text-overflow: ellipsis;
      white-space: nowrap;
@@ -26,14 +25,5 @@
 
 .time-slot-event--link {
     position: absolute;
-    top: 0;
-    height: 200px;
-
+    padding-left: 1vw;
 }
-/*.time-slot-event--link {
-    flex: 1;
-    border: solid purple 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}*/

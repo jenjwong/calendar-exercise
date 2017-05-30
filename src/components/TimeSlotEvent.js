@@ -33,14 +33,13 @@ export default class TimeSlotEvent extends PureComponent {
             height: `${height}px`,
             width: `${width}px`,
             top: `${startHeight}px`,
-            padding: `0 ${10}px`,
             zIndex: `${zIndex}`
         };
 
         return (
             <Link className="time-slot-event--link" to={{pathname: `/details/${id}`}} style={style}>
                 <div className={`time-slot-event b-r-5 ${displayColor}`}>
-                {title}
+                    {title}
                 </div>
             </Link>
         );

@@ -14,15 +14,14 @@ export const dateAtMidnight = (timestamp) => new Date(timestamp).setHours(0, 0, 
  * @param {Date} timestamp - The timestamp representing the day to match
  * @returns {array}
  */
-export const filterEventsByDay = (events, timestamp) => {
-    return events.filter((event) => {
+export const filterEventsByDay = (events, timestamp) => (
+    events.filter((event) => {
         let milisecondEventDuration = event.hours * MINUTES_HOUR * SECONDS_MINUTE * MILLISECONDS_SECOND;
 
         return dateAtMidnight(timestamp) >= dateAtMidnight(event.start)
-        && dateAtMidnight(timestamp) <= dateAtMidnight(event.start + milisecondEventDuration)
-    }
+        && dateAtMidnight(timestamp) <= dateAtMidnight(event.start + milisecondEventDuration);
+    })
 );
-}
 
 /**
  * Given a list of events and an hour number, filter the events down to those that
@@ -32,7 +31,7 @@ export const filterEventsByDay = (events, timestamp) => {
  * @param {array}
  * @returns {array}
  */
- export const filterEventsByHour = (events, hour) => (
+export const filterEventsByHour = (events, hour) => (
      events.filter(({start}) => (
          new Date(start)).getHours() === hour
      )

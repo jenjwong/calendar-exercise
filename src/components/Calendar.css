@@ -2,7 +2,7 @@
  * TODO: Calendar should have rounded corners
  */
 .calendar {
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
     border: 1px solid #666;
     display: flex;
     justify-content: space-between;

@@ -10,9 +10,14 @@ export default class DetailOverlay extends PureComponent {
 
     render() {
         return (
-            <section className="event-detail-overlay" onClick={this._handleClick}>
-                <div className="event-detail-overlay__container b-r-5" role="button">
-                    <Link to={{pathname: this.props.onClose}} role="button" tabIndex="0">
+            <section
+                className="event-detail-overlay"
+                onClick={this._handleClick}
+                role="button"
+                tabIndex="0"
+            >
+                <div className="event-detail-overlay__container b-r-5">
+                    <Link to={{pathname: this.props.onClose}}>
                         <div className="event-detail-overlay__close" title="Close detail view" />
                     </Link>
                     <div>

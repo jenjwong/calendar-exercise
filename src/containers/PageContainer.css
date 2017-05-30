@@ -1,27 +1,26 @@
-.example-appear {
+.overlay-appear {
     transform: translate(0, 100%);
 }
 
-.example-appear.example-appear-active {
+.overlay-appear.overlay-appear-active {
     transform: translate(0, 0);
     transition: transform 900ms ease-in;
 }
 
-.example-enter {
+.overlay-enter {
     transform: translate(0, 100%);
 }
 
-.example-enter.example-enter-active {
+.overlay-enter.overlay-enter-active {
     transform: translate(0, 0);
     transition: transform 900ms ease-in;
 }
 
-
-.example-leave {
+.overlay-leave {
     transform: translate(0, 0);
 }
 
-.example-leave.example-leave-active {
+.overlay-leave.overlay-leave-active {
     transform: translate(0, 100%);
     transition: transform 900ms ease-in;
 }
