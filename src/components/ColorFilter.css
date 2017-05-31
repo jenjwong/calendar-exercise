@@ -1,0 +1,40 @@
+.button__color-filter--wrapper {
+    display: flex;
+    width: 20%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button__color-filter {
+    flex: 1 1 100%;
+    margin: 1rem 0 1rem;
+}
+.button__color-filter:focus {
+    background-color: white;
+}
+
+.button__color-filter--sky {
+    background-color: #d1e8f0;
+    border-color: #307992;
+}
+
+.button__color-filter--canary {
+    background-color: #fcf69a;
+    border-color: #938a04;
+}
+
+.button__color-filter--rose {
+    background-color: #fcbbd2;
+    border-color: #b00843;
+}
+
+.button__color-filter--shamrock {
+    background-color: #009e60;
+    border-color: #003800;
+}
+
+.button__color-filter--all {
+    background-color: lavender;
+    border-color: #003800;
+}
