@@ -27,6 +27,7 @@
    overflow: hidden;
    display: flex;
    justify-content: flex-start;
+   position: relative;
 }
 .time-slot__event {
    max-width: 100%;
@@ -39,9 +40,10 @@
     height: 1px;
     width: 100%;
     background-color: red;
-    position: relative;
+    position: absolute;
     top: 0px;
     margin: 0px;
+    border: 0px;
 }
 
 @media screen and (min-width: 50rem) {

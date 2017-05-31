@@ -29,15 +29,17 @@ export default class TimeSlot extends PureComponent {
         this.setState({timeSlotHeight: height});
     }
 
-    _hasTimeLine(slotHour) {
+    _renderTimeLine(slotHour) {
         let milisecondsNow = Date.now();
-        let currentHour = new Date(milisecondsNow).getHours();
-        let currentMinute = new Date(milisecondsNow).getMinutes();
+        // let currentHour = new Date(milisecondsNow).getHours();
+        let currentHour = 10
+        // let currentMinute = new Date(milisecondsNow).getMinutes();
+        let currentMinute = 25;
 
         if (currentHour === slotHour) {
-            // timeSlotEl height times fraction of minutes of total hour; 0.5 centers calculation from middle of TimeLine
+            // 0.5 accounts for 1px TimeLine height and centers positioning from middle
             let pixelTimeRatio = (this.state.timeSlotHeight * (currentMinute / MINUTES_HOUR)) - 0.5;
-            
+
             return (<TimeLine pixelTimeRatio={pixelTimeRatio} />);
         }
         return null;
@@ -63,7 +65,7 @@ export default class TimeSlot extends PureComponent {
                     {displayHour}
                 </span>
                 <div className="time-slot__events" ref={(input) => this.timeSlotEl = input}>
-                    {this._hasTimeLine(hour)}
+                    {this._renderTimeLine(hour)}
                     {this._renderEvents()}
                 </div>
             </section>

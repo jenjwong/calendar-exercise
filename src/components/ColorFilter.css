@@ -10,9 +10,6 @@
     flex: 1 1 100%;
     margin: 1rem 0 1rem;
 }
-.button__color-filter:focus {
-    background-color: white;
-}
 
 .button__color-filter--sky {
     background-color: #d1e8f0;
