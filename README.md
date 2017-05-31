@@ -6,7 +6,7 @@ Eventbrite onsite added features!
 #### Timeline <br>
 Adds a red line that moves vertically down the page indicating the current time.
 * [Creates presentational TimeLine component.](https://github.com/jenjwong/calendar-exercise/blob/aaa3845f680899852c5e3ba3b19a10fb9c0df06e/src/components/TimeSlot.js)
-* Calculates height of parent container by adding a ref time-slot__events and using .getBoundingClientRect
+* Calculates height of parent container by adding a ref to time-slot__events and using .getBoundingClientRect
 * Creates a helper function that performs ratio calculations and renders TimeLine component
 * [Places TimeLine by using CSS top property and applying absolute positioning to the TimeLine component and relative positioning to parent component.](https://github.com/jenjwong/calendar-exercise/blob/aaa3845f680899852c5e3ba3b19a10fb9c0df06e/src/components/TimeSlot.css)
 
@@ -20,7 +20,7 @@ Adds buttons that filters event by color.
 * [Implements combineReducers](https://github.com/jenjwong/calendar-exercise/blob/aaa3845f680899852c5e3ba3b19a10fb9c0df06e/src/reducers/index.js) and bindActionCreators as suggested in my first interview with Ben.
 
 #### Adds Eventbrite Style Guide<br>
-* Changes errors to warnings for educational purposes
+* Changes errors to warnings for educational purposes.
 ---
 
 ### Technologies
