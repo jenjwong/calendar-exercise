@@ -29,6 +29,18 @@ export const filterEventsByHour = (events, hour) => (
 );
 
 /**
+ * Given a list of events and a color, filter the events down to those that
+ * match the specified color
+ * @param {array} events - List of event objects
+ * @param {string} color - The color to match
+ * @param {array}
+ * @returns {array}
+ */
+export const filterEventsByColor = (events = [], filterColor = '') => (
+    events.filter(({color}) => color === filterColor)
+);
+
+/**
  * Given a numerical timestamp, returns the formatted date string w/o time component
  * @param {number} timestamp - The date to format
  * @returns {string} The formatted date

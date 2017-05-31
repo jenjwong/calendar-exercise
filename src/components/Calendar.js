@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {filterEventsByHour} from '../utils';
+import {filterEventsByHour, filterEventsByColor} from '../utils';
 import {HOURS_DAY} from '../utils/constants';
 import {EVENTS_PROP_TYPE} from './constants';
 
@@ -13,13 +13,17 @@ export default class Calendar extends PureComponent {
     }
 
     _renderTimeSlots() {
-        let {events} = this.props;
+        let {events, colorFilter} = this.props;
 
         return new Array(HOURS_DAY)
             .fill(0)
             .map((item, index) => {
                 let hour = index;
                 let filteredEvents = filterEventsByHour(events, hour);
+                
+                if (colorFilter) {
+                    filteredEvents = filterEventsByColor(filteredEvents, colorFilter);
+                }
 
                 return (
                     <TimeSlot
