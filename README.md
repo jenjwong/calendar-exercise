@@ -1,8 +1,6 @@
 # calendar-exercise
 This is the branch used for my interview with Ben.
 
-I couldn't resist trying to implement the multi-day feature today. It's deployed at [https://jenjwong.github.io/calendar-exercise/](https://jenjwong.github.io/calendar-exercise/) These changes can be found on the [multi-day branch](https://github.com/jenjwong/calendar-exercise/tree/multi-day).
-
 ### New Technologies
 * React-Router 4
 * React-Redux
