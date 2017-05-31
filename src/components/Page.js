@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Route} from 'react-router-dom';
-import {changeDay, setColorFilter} from '../actions/actionCreators';
+import {changeDay} from '../actions/actionCreators';
 import Calendar from './Calendar';
 import AddEventButton from './AddEventButton';
 import DetailOverlay from './DetailOverlay';
@@ -41,11 +41,11 @@ export class Page extends PureComponent {
     }
 
     _handlePrev() {
-        this.props.dispatch(changeDay(-1));
+        this.props.changeDay(-1);
     }
 
     _handleNext() {
-        this.props.dispatch(changeDay(+1));
+        this.props.changeDay(+1);
     }
 
     _eventDetailOverlayRenderHelper() {
@@ -85,7 +85,7 @@ export class Page extends PureComponent {
                     onNext={this._handleNext.bind(this)}
                 />
                 <ColorFilter />
-                <Calendar events={filteredEvents} colorFilter={colorFilter}/>
+                <Calendar events={filteredEvents} colorFilter={colorFilter} />
                 {this._eventDetailOverlayRenderHelper()}
                 {this._AddEventFormRenderHelper()}
             </div>
@@ -100,8 +100,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    setColorFilter: bindActionCreators(setColorFilter, dispatch)
+    changeDay: bindActionCreators(changeDay, dispatch)
 });
 
 
-export default connect(mapStateToProps)(Page);
+export default connect(mapStateToProps, mapDispatchToProps)(Page);

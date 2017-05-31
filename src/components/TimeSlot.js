@@ -31,10 +31,8 @@ export default class TimeSlot extends PureComponent {
 
     _renderTimeLine(slotHour) {
         let milisecondsNow = Date.now();
-        // let currentHour = new Date(milisecondsNow).getHours();
-        let currentHour = 10
-        // let currentMinute = new Date(milisecondsNow).getMinutes();
-        let currentMinute = 25;
+        let currentHour = new Date(milisecondsNow).getHours();
+        let currentMinute = new Date(milisecondsNow).getMinutes();
 
         if (currentHour === slotHour) {
             // 0.5 accounts for 1px TimeLine height and centers positioning from middle

@@ -1,6 +1,6 @@
 import {MILLISECONDS_DAY} from './constants';
 
-export const EVENTS = [
+const EVENTS = [
     {
         id: 1,
         title: 'Managed intangible strategy',
