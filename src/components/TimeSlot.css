@@ -35,6 +35,15 @@
 .time-slot__event button {
    min-width: 100%;
 }
+.time-line {
+    height: 1px;
+    width: 100%;
+    background-color: red;
+    position: relative;
+    top: 0px;
+    margin: 0px;
+}
+
 @media screen and (min-width: 50rem) {
    /* Override styles for larger screens here */
 }

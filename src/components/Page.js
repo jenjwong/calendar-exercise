@@ -1,14 +1,15 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import {Route} from 'react-router-dom';
-import {changeDay} from '../actions/actionCreators';
+import {changeDay, setColorFilter} from '../actions/actionCreators';
 import Calendar from './Calendar';
 import AddEventButton from './AddEventButton';
 import DetailOverlay from './DetailOverlay';
 import EventDetails from './EventDetails';
 import AddEventForm from './AddEventForm';
-// import {MILLISECONDS_DAY} from '../utils/constants';
+import ColorFilter from '../containers/ColorFilter';
 import {filterEventsByDay, getEventFromEvents, getDisplayDate} from '../utils';
 
 import './Page.css';
@@ -40,13 +41,11 @@ export class Page extends PureComponent {
     }
 
     _handlePrev() {
-        this.props.dispatch(changeDay(-7));
-        // this.props.dispatch(setDay(this.props.day - MILLISECONDS_DAY));
+        this.props.dispatch(changeDay(-1));
     }
 
     _handleNext() {
-        this.props.dispatch(changeDay(+7));
-        // this.props.dispatch(setDay(this.props.day + MILLISECONDS_DAY));
+        this.props.dispatch(changeDay(+1));
     }
 
     _eventDetailOverlayRenderHelper() {
@@ -69,7 +68,7 @@ export class Page extends PureComponent {
     }
 
     render() {
-        let {events, day} = this.props;
+        let {events, day, colorFilter} = this.props;
         let filteredEvents = filterEventsByDay(events, day);
 
         return (
@@ -85,7 +84,8 @@ export class Page extends PureComponent {
                     onPrev={this._handlePrev.bind(this)}
                     onNext={this._handleNext.bind(this)}
                 />
-                <Calendar events={filteredEvents} />
+                <ColorFilter />
+                <Calendar events={filteredEvents} colorFilter={colorFilter}/>
                 {this._eventDetailOverlayRenderHelper()}
                 {this._AddEventFormRenderHelper()}
             </div>
@@ -95,7 +95,13 @@ export class Page extends PureComponent {
 
 const mapStateToProps = (state) => ({
     events: state.events,
-    day: state.day
+    day: state.day,
+    colorFilter: state.colorFilter,
 });
+
+const mapDispatchToProps = (dispatch) => ({
+    setColorFilter: bindActionCreators(setColorFilter, dispatch)
+});
+
 
 export default connect(mapStateToProps)(Page);
