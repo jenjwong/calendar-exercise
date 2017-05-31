@@ -1,23 +1,23 @@
 # calendar-exercise
-This is the branch used for my Eventbrite onsite.
+Eventbrite onsite added features!
 
 ### New Features
 
 #### Timeline <br>
 Adds a red line that moves vertically down the page indicating the current time.
-* Creates presentational TimeLine component
+* [Creates presentational TimeLine component.](https://github.com/jenjwong/calendar-exercise/blob/aaa3845f680899852c5e3ba3b19a10fb9c0df06e/src/components/TimeSlot.js)
 * Calculates height of parent container by adding a ref time-slot__events and using .getBoundingClientRect
 * Creates a helper function that performs ratio calculations and renders TimeLine component
-* Places TimeLine by using CSS top property and applying absolute positioning to the TimeLine component and relative positioning to parent component
+* [Places TimeLine by using CSS top property and applying absolute positioning to the TimeLine component and relative positioning to parent component.](https://github.com/jenjwong/calendar-exercise/blob/aaa3845f680899852c5e3ba3b19a10fb9c0df06e/src/components/TimeSlot.css)
 
 #### Filter By Color <br>
 Adds buttons that filters event by color.
-* Buttons are generated programatically by mapping over data from Redux events array and using a set to return an array of unique color values.
+* [Buttons are generated programatically by mapping over data from Redux events array and using a set to return an array of unique color values.](https://github.com/jenjwong/calendar-exercise/blob/aaa3845f680899852c5e3ba3b19a10fb9c0df06e/src/components/ColorFilter.js)
 * Adds colorFilter property to Redux store.
 * Adds filterEventsByColor function to utils and applies filter in _renderTimeSlots function of Calander.js.
 
 #### Implements combineReducers<br>
-* Implements combineReducers as suggested in my first interview with Ben.
+* [Implements combineReducers](https://github.com/jenjwong/calendar-exercise/blob/aaa3845f680899852c5e3ba3b19a10fb9c0df06e/src/reducers/index.js) and bindActionCreators as suggested in my first interview with Ben.
 
 #### Adds Eventbrite Style Guide<br>
 * Changes errors to warnings for educational purposes
